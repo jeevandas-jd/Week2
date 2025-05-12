@@ -1,0 +1,5 @@
+Agentic RAG builds on traditional Retrieval-Augmented Generation (RAG) by combining retrieval capabilities with agent-like reasoning and action-taking. In standard RAG, a large language model retrieves relevant information from a vector database and uses it to generate a response. Agentic RAG enhances this by allowing the system to operate in loops: thinking, retrieving, reasoning, and acting multiple times before producing a final output.
+
+In this setup, the model functions like an agent—capable of planning its next step, breaking tasks into subtasks, and retrieving information iteratively as needed. It does not rely solely on a single retrieval step. Instead, it uses memory, tools, and reasoning to dynamically guide the retrieval process over multiple interactions.
+
+The agent can decide when to retrieve new information, which sources to use, and whether more context is needed before responding. This improves the accuracy and relevance of responses, especially for complex, multi-step tasks.
