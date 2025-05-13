@@ -1,0 +1,9 @@
+Chunking is a memory strategy that involves breaking down information into smaller, more manageable units (chunks) to aid in recall. This technique is particularly effective for processing and remembering large amounts of information. By organizing information into meaningful groups, chunking enhances working memory capacity and simplifies the retrieval process. 
+Here's a more detailed explanation:
+How Chunking Works:
+Grouping:
+Chunking involves grouping related items together based on meaning or associations. 
+Meaningful Units:
+These groups (chunks) are then treated as single units in memory, rather than individual items. 
+Enhanced Recall:
+This grouping makes it easier to remember the entire sequence of information, as you only need to recall the chunks. 

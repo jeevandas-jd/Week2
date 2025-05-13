@@ -1,0 +1,11 @@
+Prompt engineering is the practice of carefully designing and refining prompts to guide large language models (LLMs) towards generating specific, desired outputs. It involves understanding how different phrasing, context, and instructions influence the AI's responses. Essentially, it's about crafting the "right questions" to elicit the most useful answers from a generative AI tool. 
+Here's a more detailed look:
+Key aspects of prompt engineering:
+Crafting effective prompts:
+This involves choosing the right words, phrases, and formatting to guide the AI's response. 
+Providing context:
+Adding relevant information or background details can help the AI understand the task and generate more accurate outputs. 
+Specifying desired output:
+Clearly stating the format, style, or type of response you expect can help the AI tailor its output accordingly. 
+Experimentation and iteration:
+Prompt engineering often requires testing different prompts and refining them based on the results until the desired output is achieved. 
