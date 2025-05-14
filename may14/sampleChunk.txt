@@ -1,0 +1,50 @@
+JEEVANDAS M S
+jeevandasms2004@gmail.com
+GitHub: jeevandas-jd
+Second Year Undergraduate, Integrated MSc in Computer Science, CUSAT, Kochi,India
+Education
+Cochin University of Science & Technology (CUSAT)
+Integrated Bachelor’s + Master’s Program (BSc + MSc) in Computer Science
+Expected Graduation: 2028
+Relevant Courses: Mathematics for Machine Learning, Operating Systems, Object-Oriented Programming, Data
+Structures, Mathematics for Data Science, Theory of Computation, Algorithms, Machine Learning
+Projects
+Babylon (Hackathon Project, Team Lead)
+October 2024
+• AI-powered educational platform using Django, designed for personalized learning and academic support. • Implemented ML models for recommendation systems and NLP-based text summarization.• Collaborated with a team to present the project at a hackathon with focus on usability and scalability. Web Crawler: DataCollector
+August 2024
+• Developed a web crawler to scrape disease-related data from the Mayo Clinic website using Python. • Utilized libraries such as BeautifulSoup and Scrapy for efficient data extraction and parsing. • Ensured high data quality for downstream machine learning applications. ICU-Digital Twin (Hackathon Project)
+September 2024
+• Designed a digital twin of ICU systems to allow real-time patient monitoring by family members. • Built a dashboard using Django for visualization of vital signs and alerts. • Incorporated features for future scalability in hospital environments. Pheromone Farancy (Introductory Project)
+November 2024
+• Explored pheromone-based optimization algorithms inspired by ant colony behavior. • Implemented basic pathfinding simulations to understand pheromone communication. • Gained insights into algorithmic optimization for potential real-world applications. Skills
+Programming: Python, C++, Java, C, Django, HTML, CSS
+Machine Learning: TensorFlow, scikit-learn, Hugging Face, NLTK
+Tools: Pandas, NumPy, Scrapy, BeautifulSoup
+Interests
+• Passionate about aviation as a hobby. • Enthusiastic about AI/ML research, including collaborative and hackathon projects. • Interested in exploring cutting-edge technology and software solutions. 1
+JEEVANDAS M S
+jeevandasms2004@gmail.com
+GitHub: jeevandas-jd
+Second Year Undergraduate, Integrated MSc in Computer Science, CUSAT, Kochi,India
+Education
+Cochin University of Science & Technology (CUSAT)
+Integrated Bachelor’s + Master’s Program (BSc + MSc) in Computer Science
+Expected Graduation: 2028
+Relevant Courses: Mathematics for Machine Learning, Operating Systems, Object-Oriented Programming, Data
+Structures, Mathematics for Data Science, Theory of Computation, Algorithms, Machine Learning
+Projects
+Babylon (Hackathon Project, Team Lead)
+October 2024
+• AI-powered educational platform using Django, designed for personalized learning and academic support. • Implemented ML models for recommendation systems and NLP-based text summarization.• Collaborated with a team to present the project at a hackathon with focus on usability and scalability. Web Crawler: DataCollector
+August 2024
+• Developed a web crawler to scrape disease-related data from the Mayo Clinic website using Python. • Utilized libraries such as BeautifulSoup and Scrapy for efficient data extraction and parsing. • Ensured high data quality for downstream machine learning applications. ICU-Digital Twin (Hackathon Project)
+September 2024
+• Designed a digital twin of ICU systems to allow real-time patient monitoring by family members. • Built a dashboard using Django for visualization of vital signs and alerts. • Incorporated features for future scalability in hospital environments. Pheromone Farancy (Introductory Project)
+November 2024
+• Explored pheromone-based optimization algorithms inspired by ant colony behavior. • Implemented basic pathfinding simulations to understand pheromone communication. • Gained insights into algorithmic optimization for potential real-world applications. Skills
+Programming: Python, C++, Java, C, Django, HTML, CSS
+Machine Learning: TensorFlow, scikit-learn, Hugging Face, NLTK
+Tools: Pandas, NumPy, Scrapy, BeautifulSoup
+Interests
+• Passionate about aviation as a hobby. • Enthusiastic about AI/ML research, including collaborative and hackathon projects. • Interested in exploring cutting-edge technology and software solutions. 1
