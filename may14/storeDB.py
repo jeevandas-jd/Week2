@@ -10,7 +10,7 @@ def addToDB(documents, collectionName):
     texts = [doc.page_content for doc in documents]
 
     # Generate embeddings using LangChain wrapper
-    embed_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+    embed_model = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-exp-03-07")
     embeddings = embed_model.embed_documents(texts)  # returns List[List[float]]
 
     try:

@@ -1,0 +1,931 @@
+Iliya Valchanov 
+Ivan Manov 
+Machine Learning in 
+Python 
+Course Notes 
+365 DATA SCIENCE 
+ 
+2
+ 
+ Table of Contents 
+ 
+Abstract ........................................................................................................................ 4 
+Section 1: Linear Regression .................................................................................... 5 
+1.1 The linear regression model .......................................................................... 5 
+1.2 Correlation vs regression ............................................................................... 6 
+1.3 Geometrical representation of the Linear Regression Model ................. 7 
+1.4 Regression in Python ....................................................................................... 8 
+1.5 Interpreting the regression table .................................................................. 9 
+1.6 OLS ................................................................................................................... 13 
+1.7 R-squared ........................................................................................................ 14 
+1.8 Multiple linear regression ............................................................................. 15 
+1.9 Adjusted R-squared ....................................................................................... 15 
+1.10 F-test ............................................................................................................... 16 
+1.11 OLS Assumptions: Linearity ....................................................................... 17 
+1.12 OLS Assumptions: No endogeneity......................................................... 18 
+1.13 OLS Assumptions: Normality and homoscedasticity ............................ 18 
+1.14 OLS Assumptions: No autocorrelation .................................................... 19 
+1.15 OLS Assumptions: No multicollinearity ................................................... 20 
+1.16 Dealing with categorical data – Dummy variables ................................ 20 
+365 DATA SCIENCE 
+ 
+3
+ 
+1.17 Underfitting and overfitting ....................................................................... 21 
+1.18 Training and testing .................................................................................... 22 
+Section 2: Logistic Regression ............................................................................... 23 
+2.1 Logistic vs logit function ............................................................................... 23 
+2.2 Building a logistic regression ...................................................................... 24 
+2.3 Understanding the tables ............................................................................. 25 
+2.4 Calculating the accuracy of the model ...................................................... 27 
+Section 3: Cluster Analysis ...................................................................................... 29 
+Section 4: K-Means Clustering ............................................................................... 31 
+4.1 Selecting the number of clusters ................................................................ 32 
+4.2 K-means clustering - pros and cons ........................................................... 32 
+4.3 Standardization .............................................................................................. 32 
+4.4 Relationship between clustering and regression .................................... 33 
+Section 5: Types of clustering ................................................................................ 34 
+5.1 Dendrogram ................................................................................................... 35 
+ 
+ 
+ 
+ 
+ 
+365 DATA SCIENCE 
+ 
+4
+ 
+Abstract 
+Regression analysis is one of the most widely used methods for predictions, 
+applied whenever we have a causal relationship between variables. A large 
+portion of the predictive modelling that occurs in practice is carried out through 
+regression analysis. It becomes extremely powerful when combined with 
+techniques like factor analysis.  
+Regression models help us make predictions about the population based 
+on sample data. 
+ 
+Get a sample data 
+ 
+ 
+ 
+Design a model 
+ 
+ 
+ 
+Make predictions about the whole population 
+ 
+365 DATA SCIENCE 
+ 
+5
+ 
+Section 1: Linear Regression 
+A linear regression is a linear approximation of a causal relationship 
+between two or more variables. It is probably the most fundamental machine 
+learning method and a starting point for the advanced analytical learning path of 
+every aspiring data scientist.  
+ 
+ 
+1.1 The linear regression model 
+As many other statistical techniques, regression models help us make 
+predictions about the population based on sample data.  
+Variables: 
+Dependent (predicted): Y 
+Independent (predictors): 𝑥1, 𝑥2, 𝑥3…𝑥𝑘 
+Y is a function of the x variables, and the regression model is a linear 
+approximation of this function. The equation describing how Y is related to x is: 
+Simple linear regression model (population): 
+Y = 𝛽0 + 𝛽1𝑥1 + 𝜀  
+Y – dependent variable 
+𝑥1 – independent variable 
+𝛽0–  constant/intercept 
+𝛽1–  coefficient – quantifies the effect of 𝑥1 on 𝑦̂ 
+𝜀 – error of estimation 
+ 
+365 DATA SCIENCE 
+ 
+6
+ 
+Simple linear regression equation (sample):  
+𝑦̂  = 𝑏0 + 𝑏1𝑥1 
+𝑦̂  – estimated/predicted value 
+𝑏0– coefficient – estimate of 𝛽0 
+𝑏1– coefficient – estimate of 𝛽1   
+𝑥1 – sample data for the independent variable 
+𝜀 – error of estimation 
+When using regression analysis, the goal is to predict the value of Y, 
+based on the value of x. 
+ 
+ 
+1.2 Correlation vs regression 
+Correlation - measures the degree of relationship between two variables 
+Regression - shows how one variable affects another or what changes it 
+causes to the other 
+Correlation                                                                              Regression 
+The relationship between two variables                 How one variable affects another  
+Movement together                                                    Cause and effect 
+Symmetrical  
+ 
+ 
+ 
+                One-way 
+A single point 
+ 
+ 
+ 
+ 
+     A line 
+ 
+Comparison between correlation and regression 
+ 
+365 DATA SCIENCE 
+ 
+7
+ 
+Linear regression analysis is known for the best fitting line that goes 
+through the data points and minimizes the distance between them. 
+ 
+ 
+1.3 Geometrical representation of the Linear Regression Model 
+𝑦̂  = 𝑏0 + 𝑏1𝑥1 
+ 
+ 
+The linear regression model 
+ 
+Data points – the observed values (x) 
+𝑏0 - a constant - the intercept of the regression line with the y axis 
+𝑏1 - the slope of the regression line – shows how much y changes for each 
+unit change of x 
+𝑒̂𝑖 – estimator of the error - the distance between the observed values and 
+the regression line 
+ŷ - the value predicted by the regression line 
+Regression line – the best fitting line through the data points 
+𝑦̂𝑗
+𝑥̂𝑗
+365 DATA SCIENCE 
+ 
+8
+ 
+1.4 Regression in Python 
+Coding steps: 
+• Importing the relevant libraries 
+• Loading the data 
+• Defining the dependent and the independent variables following the 
+regression equation 
+• Exploring the data 
+• Plotting a scatter plot 
+• Regression itself 
+• Adding a constant  
+• Fitting the model according to the OLS method with a dependent 
+variable y and an independent variable x 
+▪ Ordinary least squares (OLS) – a method for finding the line 
+which minimizes the SSE 
+• Printing a summary of the regression 
+ 
+A summary table in Jupyter Notebook 
+365 DATA SCIENCE 
+ 
+9
+ 
+• Creating a scatter plot 
+• Defining the regression equation 
+• Plotting the regression line 
+ 
+Plotted regression line in Jupyter Notebook 
+ 
+ 
+1.5 Interpreting the regression table 
+Summary table and important regression metrics 
+• A model summary 
+ 
+Model summary table 
+ 
+Dep. Variable - the dependent variable, y; This is the variable we are trying 
+to predict 
+365 DATA SCIENCE 
+ 
+10
+ 
+ 
+R-squared - variability of the data, explained by the regression model. 
+Range: [0;1]   
+ 
+Adj. R-squared - variability of the data, explained by the regression model, 
+considering the number of independent variables. Range: < 0; could be negative, 
+but a negative number is interpreted as 0 
+ 
+F-statistic - evaluates the overall significance of the model (if at least 1 
+predictor is significant, F-statistic is also significant). The lower the F-statistics, the 
+closer to a non-significant model 
+ 
+Prob (F-statistic) - P-value for F-statistic 
+• A coefficients table 
+ 
+ 
+std err = standard error – shows the accuracy of the prediction for each 
+variable 
+ 
+Coefficient of the intercept, 𝑏0; sometimes we refer to this variable as 
+constant or bias (as it ‘corrects’ the regression equation with a constant 
+value) 
+ 
+365 DATA SCIENCE 
+ 
+11
+ 
+Coefficient of the independent variable i: 𝑏𝑖; this is usually the most 
+important metric – it shows us the relative/absolute contribution of each 
+independent variable of our model 
+ 
+  
+P-value of t-statistic; The t-statistic of a coefficient shows if the 
+corresponding independent variable is significant or not 
+• Additional tests 
+ 
+  
+A way for detecting autocorrelation (a violation of the fourth OLS 
+assumption) 
+ 
+ 
+Decomposition of variability 
+Variance - a measure of variability calculated by taking the average of 
+squared deviations from the mean. It describes how far the observed values differ 
+from the average of predicted values 
+• Explained variability - variability explained by the explanatory variables 
+used in our regression 
+• Unexplained variability - variability explained by other factors that are 
+not included in the model 
+365 DATA SCIENCE 
+ 
+12
+ 
+• Total variability - variability of the outcome variable  
+ 
+The total variability of the data set is equal to the variability explained by the 
+regression line plus the unexplained variability, known as error. 
+• Sum of squares total (SST) = Total sum of squares (TSS) – measures the 
+total variability of the dataset 
+SST = ∑
+(𝑦𝑖−𝑦̅)2
+𝑛
+𝑖=1
+ 
+𝑦𝑖 – observed dependent variable 
+𝑦̅ - mean of the dependent variable 
+• Sum of squares regression (SSR) = Explained sum of squares (ESS) – 
+measures the explained variability by the regression line 
+SSR = ∑
+(𝑦̂𝑖−𝑦̅)2
+𝑛
+𝑖=1
+ 
+𝑦̂𝑖- the predicted value of the dependent variable 
+𝑦̅ - mean of the dependent variable 
+• Sum of squares error (SSE) = Residual sum of squares (RSS) – measures 
+the unexplained variability by the regression 
+SSE = ∑
+𝑒𝑖
+2
+𝑛
+𝑖=1
+ 
+𝑒𝑖 – the difference between the actual value of the dependent variable 
+and the predicted value 
+𝑒𝑖 = 𝑦𝑖 − 𝑦̂𝑖 
+Total Variability = Explained variability + Unexplained variability: 
+SST = SSR + SSE 
+SSR       SSE 
+365 DATA SCIENCE 
+ 
+13
+ 
+1.6 OLS 
+OLS or the ordinary least squares is the most common method to do estimate 
+of the linear regression equation. “Least squares” stands for the minimum squares 
+error, or SSE. This method aims to find the line, which minimizes the sum of the 
+squared errors. 
+𝑆(𝑏) = ∑
+(𝑦−𝑥𝑏)2
+𝑛
+𝑖=1
+ 
+ 
+There are other methods for determining the regression line. They are 
+preferred in different contexts.  
+365 DATA SCIENCE 
+ 
+14
+ 
+ 
+ 
+ 
+1.7 R-squared 
+R-squared - a measure describing how powerful a regression is. 
+ 
+      
+    0                                                                                                         1 
+R-squared visual interpretation 
+0 - The regression explains none of the variability 
+1- The regression explains all of the variability 
+R-squared is a relative measure and takes values ranging from 0 to 1. An R 
+squared of zero means your regression line explains none of the variability of the 
+data. An R squared of 1 would mean your model explains the entire variability of the 
+data. Unfortunately, regressions explaining the entire variability are rare. What you 
+will usually observe is values ranging from 0.2 to 0.9.  
+365 DATA SCIENCE 
+ 
+15
+ 
+1.8 Multiple linear regression 
+Population model: 
+𝑦 = 𝛽0 + 𝛽1𝑥1 + 𝛽2𝑥2 + . . . + 𝛽𝑘𝑥𝑘 +  𝜀  
+Multiple regression equation: 
+𝑦̂  = 𝑏0 + 𝑏1𝑥1 + 𝑏2𝑥2+ . . . + + 𝑏𝑘𝑥𝑘 
+𝑦̂ – inferred value 
+𝑏0 – intercept 
+𝑥1 . . . 𝑥𝑘 – independent variables 
+𝑏1 . . . 𝑏𝑘 – corresponding coefficients 
+• Addresses the higher complicity of a problem 
+• Contains many more independent variables 
+• It is not about the best fitting line as there is no way to represent the 
+result graphically. Instead, it is about the best fitting model  
+➔ min SSE 
+SST = SSR + SSE 
+SSR       SSE 
+ 
+ 
+1.9 Adjusted R-squared 
+Adjusted R-squared - measures how much of the total variability is 
+explained by our model, considering the number of variables. The adjusted R 
+squared is always smaller than the R squared, as it penalizes excessive use of 
+variables. It is the basis for comparing models.  
+Multiple linear regression and adjuster R-squared in Python 
+365 DATA SCIENCE 
+ 
+16
+ 
+Steps: 
+• Importing the relevant libraries 
+• Loading the data 
+• Defining the dependent and the independent variables following the 
+regression equation -  
+• Regression itself 
+• Adding a constant  
+• Fitting the model according to the OLS method with a dependent 
+variable y and an independent variable x, which can contain 
+multiple values – for instance a DataFrame of Series  
+• Printing a summary of the regression  
+ 
+ 
+1.10 F-test 
+The F-statistic is used for testing the overall significance of the model.  
+F-test: 
+𝐻0: 𝛽1 = 𝛽2 =. . . = 𝛽𝑘=  0 
+𝐻1: 𝑎𝑡 𝑙𝑒𝑎𝑠𝑡 𝑜𝑛𝑒 𝛽𝑖≠ 0 
+If all betas are 0, then none of the Xs matter  
+➔ our model has no merit 
+The lower the F-statistic, the closer to a non-significant model. 
+ 
+ 
+365 DATA SCIENCE 
+ 
+17
+ 
+1.11 OLS Assumptions: Linearity 
+𝑦 = 𝛽0 + 𝛽1𝑥1 + 𝛽2𝑥2 + . . . + 𝛽𝑘𝑥𝑘 +  𝜀  
+The linear regression is the simplest non-trivial relationship. 
+  
+ 
+ 
+ 
+ 
+ 
+A linear relationship between two variables 
+ 
+The easiest way is to verify if the relationship between two variables is linear 
+is to choose an independent variable X one and plot it against the depended Y on 
+a scatter plot. If the data points form a pattern that looks like a straight line, then a 
+linear regression model is suitable. 
+If the relationship is non-linear, you should not use the data before 
+transforming it appropriately.  
+Fixes: 
+• run a non-linear regression 
+• exponential transformation 
+• log transformation 
+ 
+ 
+y 
+x 
+365 DATA SCIENCE 
+ 
+18
+ 
+1.12 OLS Assumptions: No endogeneity 
+No endogeneity refers to the prohibition of a link between the independent 
+variables and the errors, mathematically expressed in the following way: 
+𝜎𝑋𝜀=  0 ∶ ⩝ 𝑥, 𝜀 
+The error (the difference between the observed values and the predicted 
+values) is correlated with the independent values. This is a problem referred to as 
+omitted variable bias. Omitted variable bias is introduced to the model when you 
+forget to include a relevant variable.  
+As each independent variable explains y, they move together and are 
+somewhat correlated. Similarly, y is also explained by the omitted variable, so they 
+are also correlated. Chances are that the omitted variable is also correlated with at 
+least one independent x. but it is not included it as a regressor. Everything that you 
+don’t explain with your model goes into the error. So, the error becomes correlated 
+with everything else.  
+ 
+ 
+1.13 OLS Assumptions: Normality and homoscedasticity 
+𝜀~ 𝑁(0, 𝜎2) 
+• Normality = N – assuming the error is normally distributed 
+• Zero mean - if the mean is not expected to be zero, then the line is not the 
+best fitting one. However, having an intercept solves that problem, so in 
+real-life it is unusual to violate this part of the assumption. 
+• Homoscedasticity = equal variance - the error terms should have equal 
+variance one with the other 
+365 DATA SCIENCE 
+ 
+19
+ 
+• Prevention:  
+▪ Looking for omitted variable bias 
+▪ Looking for outliers 
+▪ Log transformation – creating a semi-log or a log-log model 
+ 
+ 
+1.14 OLS Assumptions: No autocorrelation 
+No autocorrelation = no serial correlation 
+𝜎𝜀𝑖𝜀𝑗= 0 ∶ ⩝𝑖 ≠ 𝑗 
+Errors are assumed to be uncorrelated.  
+Serial correlation is highly unlikely to be found it in data taken at one 
+moment of time, known as cross-sectional data. However, it is very common in 
+time series data. 
+Prevention: 
+• Dublin-Watson test:  
+• 2 – no autocorrelation 
+• < 1 and >3 – cause an alarm 
+When in the presence of autocorrelation - avoid the linear regression 
+model! 
+Alternatives: 
+• Autoregressive model 
+• Moving average model 
+• Autoregressive moving average model 
+365 DATA SCIENCE 
+ 
+20
+ 
+• Autoregressive integrated moving average model 
+ 
+ 
+1.15 OLS Assumptions: No multicollinearity 
+ρ𝑥𝑖𝑥𝑗≈1 ∶ ⩝𝑖, 𝑗;  𝑖 ≠ 𝑗 
+We observe multicollinearity when two or more variables have a high 
+correlation. This poses a problem to our model.  
+Multicollinearity is a big problem but is also the easiest to notice. Before 
+creating the regression, find the correlation between each two pairs of independent 
+variables, and you will know if a multicollinearity problem may arise.  
+Fixes: 
+• Dropping one of the two variables 
+• Transforming them into one (e.g. average price) 
+• Keeping them both while treating them with extreme caution 
+The correct approach depends on the research at hand.  
+ 
+ 
+1.16 Dealing with categorical data – Dummy variables 
+Dummy – an imitation of categories with numbers 
+Example: 
+Attendance 
+Categorical data                        Numerical data 
+Yes                                             1 
+365 DATA SCIENCE 
+ 
+21
+ 
+No                                              0 
+ 
+In regression analysis, a dummy is a variable that is used to include 
+categorical data into a regression model. 
+ 
+Without categorical data:  
+ 
+                      With categorical data: 
+ 
+ 
+ 
+1.17 Underfitting and overfitting 
+Underfitting model 
+Overfitting model 
+Good model 
+Doesn’t capture the logic 
+of the data 
+The training model has 
+focused on the particular 
+training set so much, that 
+it captures all the noise 
+and “misses the point” 
+Captures the 
+underlying logic of 
+the data 
+Low train accuracy 
+High train accuracy 
+High train accuracy 
+Low test accuracy 
+Low test accuracy 
+High test accuracy 
+365 DATA SCIENCE 
+ 
+22
+ 
+Comparison between an overfitted model, an underfitted model, and a good 
+model 
+ 
+ 
+1.18 Training and testing 
+We split the data into training and testing parts and we train the model on 
+the training dataset but test it on the testing dataset. The goal is to avoid the 
+scenario where the model learns to predict the training data very well but fails 
+when given new samples 
+• Generating data we are going to split 
+• Splitting the data 
+• Exploring the results 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+365 DATA SCIENCE 
+ 
+23
+ 
+Section 2: Logistic Regression 
+A logistic regression implies that the possible outcomes are not numerical, 
+but rather – categorical. In the same way that we include categorical predictors into 
+a linear regression through dummies, we can predict categorical outcomes through 
+a logistic regression.  
+ 
+Logistic regression 
+ 
+ 
+2.1 Logistic vs logit function 
+The main difference between logistic and linear regressions is the linearity 
+assumption – logistic regressions are non-linear by definition. The logistic 
+regression predicts the probability of an event occurring. Thus, we are asking the 
+question: given input data, what is the probability of a student being admitted? 
+Input                          Probability 
+ 
+ 
+ 
+0 
+1 
+365 DATA SCIENCE 
+ 
+24
+ 
+ 
+    Logistic function 
+Logistic regression model: 
+𝑝(𝑋) = 
+𝑒(𝛽0+𝛽1𝑥1+...+ 𝛽𝑘𝑥𝑘)
+1 + 𝑒(𝛽0+𝛽1𝑥1+...+ 𝛽𝑘𝑥𝑘) 
+Exponential of a linear combination of inputs and coefficients, divided by, 
+one, plus, the same exponential.  
+After transforming, the expression looks like this: 
+ 
+LogIt regression model: 
+ 
+𝑝(𝑋)
+1 − 𝑝(𝑋) = 𝑒(𝛽0+𝛽1𝑥1+...+ 𝛽𝑘𝑥𝑘)  
+The probability of the event occurring, divided by the probability of the 
+event NOT occurring equals the exponential from above.  
+𝑙𝑜𝑔(𝑜𝑑𝑑𝑠) = 𝛽0 + 𝛽1𝑥1+. . . + 𝛽𝑘𝑥𝑘 
+Linear regression is the basic of logistic regression.  
+ 
+2.2 Building a logistic regression 
+Steps when working with statsmodels.api: 
+• 
+Adding a constant 
+• 
+Applying the sm.Logit() method - takes as arguments the 
+dependent variable and the independent variable 
+• 
+Fitting the regression 
+ 
+ 
+Odds 
+365 DATA SCIENCE 
+ 
+25
+ 
+2.3 Understanding the tables 
+ 
+ 
+Method MLE = Maximum likelihood estimation  
+• 
+Likelihood function – a function which estimates how likely it is 
+that the model at hand describes the real underlying relationship 
+of the variables. The bigger the likelihood function, the higher the 
+probability that our model is correct. 
+MLE tries to maximize the likelihood function 
+ 
+LL-Null = Log likelihood-null – the log-likelihood of a model which has no 
+independent variables 
+ 
+LLR p-value = Log likelihood ratio – measures if our model is statistically 
+different from LL-null, a.k.a. a useless model 
+ 
+Pseudo R-squ. =  Pseudo R-squared – this measure is mostly useful for 
+comparing variations of the same model. Different models will have completely 
+different and incomparable Pseudo R-squares. 
+• AIC 
+• BIC 
+• McFadden’s R-squared 
+365 DATA SCIENCE 
+ 
+26
+ 
+ 
+ 
+△𝑜𝑑𝑑𝑠= 𝑒𝑏𝑘 
+For a unit change in a variable, the change in the odds equals the exponential 
+of the coefficient. That exactly is what provides us with a way to interpret the 
+coefficients of a logistic regression. 
+Binary predictors in a logistic regression - in the same way we create 
+dummies for a linear regression, we can use binary predictors in a logistic 
+regression. 
+365 DATA SCIENCE 
+ 
+27
+ 
+2.4 Calculating the accuracy of the model 
+ 
+For 69 observations, the model predicted 0 when the true value was 0.  
+For 90 observations, the model predicted 1, and it actually was 1. 
+These cells indicate in how many cases the model did its job well.  
+ 
+In 4 cases, the model predicted 0, while it was 1.  
+In 5 cases, the regression predicted 1 while it was 0. 
+The most important metric we can calculate from this matrix is the accuracy of 
+the model.  
+Confusion matrix 
+365 DATA SCIENCE 
+ 
+28
+ 
+ 
+In 69 plus 90 of the cases, the model was correct. In 4 plus 5 of the cases, the 
+model was incorrect. Overall, the model made an accurate prediction in 159 out of 
+168 cases. That gives us a 159 divided by 168, which is 94.6% accuracy. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+365 DATA SCIENCE 
+ 
+29
+ 
+Section 3: Cluster Analysis  
+Cluster analysis is a multivariate statistical technique that groups 
+observations on the basis some of their features or variables that they are 
+described by. The goal of clustering is to maximize the similarity of observations 
+within a cluster and maximize the dissimilarity between clusters. 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+Explore the data 
+Cluster Analysis                
+  
+ 
+ 
+ 
+ 
+ 
+Identify patterns 
+ 
+ 
+Classification 
+Clustering 
+Model (Inputs) > Outputs > Correct 
+values  
+Model (Inputs) > Outputs > ? 
+Predicting an output category, given 
+input data 
+Grouping data points together based 
+on similarities among them  
+ 
+Comparison between classification and clustering 
+ 
+ 
+• Measuring the distance between two data points 
+• Defining the term ‘centroid’ 
+ 
+365 DATA SCIENCE 
+ 
+30
+ 
+ 
+ 
+Euclidean distance 
+ 
+Geometrical representation of the relationship between two points 
+ 
+2D space: d(A,B) = d(B,A) = √(𝑥2 −𝑥11)2 + (𝑦2 −𝑦1)2 
+3D space: d(A,B) = d(B,A) = √(𝑥2 −𝑥1)2 + (𝑦2 −𝑦1)2 + (𝑧2 −𝑧1)2 
+If the coordinates of A are (𝑎1, 𝑏1,…, 𝑎𝑛) and of B are (𝑏1, 𝑏2,… 𝑏𝑛): 
+N-dim space: 
+d(A,B) = d(B,A) = √(𝑎1 −𝑏1)2 + (𝑎2 −𝑏2)2 + ⋯+ (𝑎𝑛−𝑏𝑛)2 
+ 
+Centroid – the mean position of a group of points 
+ 
+ 
+ 
+ 
+365 DATA SCIENCE 
+ 
+31
+ 
+Section 4: K-Means Clustering  
+K-means is the most popular method for identifying clusters. 
+• Choosing the number of clusters 
+K – the number of clusters we are trying to identify 
+• Specifying the cluster seeds based on a prior knowledge on the 
+given data 
+Seed – a starting centroid 
+• Assigning each data point to a centroid based on proximity 
+(measured with Euclidean distance) 
+• Adjusting the centroids 
+Reassigning the data points and recalculate the centroids 
+ 
+Clusters 
+ 
+The goal is to minimize the distance between the points in a cluster 
+(WCSS) and maximize the distance between the clusters. 
+WCSS - within-cluster sum of squares 
+ 
+365 DATA SCIENCE 
+ 
+32
+ 
+4.1 Selecting the number of clusters 
+The Elbow method – a criterion for setting the proper number of clusters. It 
+is about making the WCSS as low as possible, while still having a small number of 
+clusters to reason about.  
+ 
+ 
+4.2 K-means clustering - pros and cons 
+Pros 
+Cons 
+Simple to implement 
+We need to pick K 
+Computationally efficient 
+Sensitive to initialization 
+Widely used 
+Sensitive to outliers 
+Always yields a result 
+Produces spherical solutions 
+Pros and cons of the K-means clustering 
+ 
+ 
+4.3 Standardization 
+The aim of standardization is to reduce the weight of higher numbers and 
+increase that of lower ones. If we don’t standardize, the range of the values serves 
+as weights for each variable, and we are not taking advantage of the size data 
+whatsoever. Therefore, it is a good practice to standardize the data before 
+clustering.  
+When we should not standardize - as standardization is trying to put all 
+variables on equal footing, in some cases, we don’t need to do that. If we know that 
+365 DATA SCIENCE 
+ 
+33
+ 
+one variable is inherently more important than another, then standardization 
+shouldn’t be used. 
+ 
+ 
+4.4 Relationship between clustering and regression  
+Classification 
+Clustering 
+Classification is a typical example of 
+supervised learning 
+Cluster analysis is a typical example of 
+unsupervised learning 
+It is used whenever we have input data 
+and the desired correct outcomes 
+(targets). We train our data to find the 
+patterns in the inputs that lead to the 
+targets 
+It is used whenever we have input data 
+but have no clue what the correct 
+outcomes are 
+With classification we need to know 
+the correct class of each of the 
+observations in our data, in order to 
+apply the algorithm 
+Clustering is about grouping data 
+points together based on similarities 
+among them and difference from 
+others 
+A typical example of classification is 
+the logistic regression 
+A typical example of clustering is the K-
+means clustering 
+ 
+         
+ 
+365 DATA SCIENCE 
+ 
+34
+ 
+Comparisson between classification and clustering 
+ 
+ In classification, we use the targets (correct values) to adjust the model to 
+get better outputs. In clustering, there is no feedback loop, therefore, the model 
+simply finds the outputs it deems best. 
+ 
+ 
+Section 5: Types of clustering 
+ 
+          Flat 
+ 
+ 
+ 
+ 
+Hierarchical 
+ 
+  
+ 
+ 
+ 
+ 
+Divisive                                        
+Agglomerative 
+Types of clustering 
+Flat - with flat methods there is no hierarchy, but rather the number of 
+clusters are chosen prior to clustering. Flat methods have been developed 
+because hierarchical clustering is much slower and computationally expensive. 
+Nowadays, flat methods are preferred because of the volume of data we typically 
+try to cluster. 
+Hierarchical - historically, hierarchical clustering was developed first. An 
+example clustering with hierarchy is the taxonomy of the animal kingdom. It is 
+superior to flat clustering in the fact that it explores (contains) all solutions. 
+365 DATA SCIENCE 
+ 
+35
+ 
+• 
+Divisive (top-down) - with divisive clustering, we start from a 
+situation where all observations are in the same cluster. Then, we 
+split this big cluster into 2 smaller ones. Next, we continue with 3, 
+4, 5, and so on, until each observation is its separate cluster. To 
+find the best split, we must explore all possibilities at each step. 
+• 
+Agglomerative (bottom-up) - when it comes to 
+agglomerative clustering, the approach is bottom up. To find the 
+combination of observations into a cluster, we must explore all 
+possibilities at each step.  
+ 
+ 
+5.1 Dendrogram 
+Pros: 
+• Hierarchical clustering shows all the possible linkages between 
+clusters 
+• It’s easy to understand the data 
+• No need to define the number of clusters (like with K-means) 
+• There are many methods performing hierarchical clustering 
+Cons: 
+• The biggest con is scalability  
+• It is computationally expensive – the more observations, the 
+slower it gets 
+ 
+365 DATA SCIENCE 
+ 
+36
+ 
+Email: 
+Address: 
+Email: team@365datascience.com 
+Iliya Valchanov 
+Ivan Manov 
+ 
+ 
+ 
+ 
+ 
+ 

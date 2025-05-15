@@ -18,7 +18,7 @@ def chunkTXT(path):
             text_spliter=SemanticChunker(GoogleGenerativeAIEmbeddings(model="models/embedding-001"),
                              breakpoint_threshold_type="percentile")
             documents=text_spliter.create_documents([text])
-            print(f"documnet after chunking\n{"*"*20}\n{documents}")
+            #print(f"documnet after chunking\n{"*"*20}\n{documents}")
             with open(os.path.splitext(path)[0]+"Chunk.txt","a") as f:
                 for lines in documents:
                     f.write(lines.page_content)
