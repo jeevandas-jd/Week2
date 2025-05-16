@@ -1,25 +1,13 @@
 import autogen
-
-#import openai
-#google api "AIzaSyC0IeKjfDwI8KyyLgEwwH5rSE2NuApZnVI"
-"""  
-      {
-        "model": "gemini-pro",
-        "api_key": "AIzaSyABBfec3SXrG-_yMsjexuoB-zAFRoOiUT8",
-        "api_type": "google"
-
-    } 
-             {
-        "model":"gpt-35-turbo",
-        "api_key":"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"
-    },
-     ,"""
+from dotenv import load_dotenv
+import os
+load_dotenv()
 try:
     config_list=[
         {
 
-               "model": "gemini-1.5-flash",
-        "api_key": "AIzaSyABBfec3SXrG-_yMsjexuoB-zAFRoOiUT8",
+        "model": "gemini-1.5-flash",
+        "api_key": os.getenv("api_key"),
         "api_type": "google"
 
     } 
