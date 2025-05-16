@@ -1,0 +1,8 @@
+Single-Agent vs Multi-Agent Systems
+
+A Single-Agent System involves only one autonomous entity (agent) that perceives its environment and acts to achieve specific goals. It makes decisions independently without needing to coordinate with any other agent. These systems are simpler and easier to design, test, and debug. An example of a single-agent system is a robot vacuum cleaner that cleans a room by itself.
+
+On the other hand, a Multi-Agent System consists of two or more agents that may interact, cooperate, or compete with each other. Each agent in the system is autonomous, and they may need to coordinate their actions to achieve common or individual goals. These systems are suitable for complex environments where multiple tasks or perspectives are involved. For instance, a team of drones working together to map a large area is a multi-agent system.
+
+In summary, single-agent systems are simpler and used for straightforward tasks, while multi-agent systems are more complex but powerful for distributed or cooperative tasks.
+
