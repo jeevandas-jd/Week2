@@ -22,7 +22,11 @@ def search_collection(collection, embedding, n_results=2):
 
 
 def generate_answer(context_docs, user_query, model_name="gemini-2.0-flash"):
+    if context_docs is None:
+        print("Context not fetched from the documnet")
+        return
     context = "\n".join(context_docs)
+    #print(f"context_docs :\n\t{context_docs}")
     prompt = f"""Use the following context to answer the user's question:
 
     Context:
@@ -34,3 +38,4 @@ def generate_answer(context_docs, user_query, model_name="gemini-2.0-flash"):
     chat_model = ChatGoogleGenerativeAI(model=model_name, temperature=0.2)
     response = chat_model([HumanMessage(content=prompt)])
     return response.content
+

@@ -3,17 +3,18 @@ import uuid
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
 def addToDB(documents, collectionName):
-    chroma_client = chromadb.PersistentClient(path="vectorDB/")
-    collection = chroma_client.create_collection(name=collectionName)
 
-    # Extract raw texts
-    texts = [doc.page_content for doc in documents]
-
-    # Generate embeddings using LangChain wrapper
-    embed_model = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-exp-03-07")
-    embeddings = embed_model.embed_documents(texts)  # returns List[List[float]]
 
     try:
+        chroma_client = chromadb.PersistentClient(path="vectorDB/")
+        collection = chroma_client.create_collection(name=collectionName)
+
+        # Extract raw texts
+        texts = [doc.page_content for doc in documents]
+
+        # Generate embeddings using LangChain wrapper
+        embed_model = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-exp-03-07")
+        embeddings = embed_model.embed_documents(texts)  # returns List[List[float]]
         collection.add(
             documents=texts,
             embeddings=embeddings,
